@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159647513-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159647513-1');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Club 62</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.5;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        #navBar {
+            z-index: 2000 !important;
+            height: auto !important;
+            width: auto !important;
+            position: absolute !important;
+            right: 0px !important;
+        }
+
+        .vertical {
+            height: 100%;
+            width: 120px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: black;
+            padding-top: 20px;
+            border-left: gray;
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            transform: scale(-1);
+        }
+
+        .menu {
+            margin-top: 500px;
+        }
+
+
+        .logo {
+            max-height: 40px !important;
+        }
+
+        .home,
+        events,
+        info {
+            opacity: 0;
+        }
+
+        .fh {
+            height: 100%;
+            width: 100%;
+        }
+
+        .bgimage {
+            object-fit: cover;
+        }
+
+        .customLarge {
+            width: 100px;
+            position: absolute;
+            right: 50px;
+            top: 50px;
+            line-height: 0.2;
+        }
+
+        .customMed {
+            width: 100px;
+            position: absolute;
+            right: 200px;
+            top: 80px;
+            line-height: 0.2;
+        }
+
+        .customSmall {
+            width: 70px;
+            position: absolute;
+            left: 30px;
+            top: 70px;
+            line-height: 0.2;
+        }
+
+        .spacerTopLarge {
+            padding-top: 300px !important;
+        }
+
+        .spacerTopMed {
+            padding-top: 150px !important;
+        }
+
+        .spacerTopSmall {
+            padding-top: 100px !important;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .right {
+            text-align: right !important;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        @keyframes in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes out {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .fadein {
+            animation: in 2s linear forwards;
+        }
+
+        .fadeout {
+            animation: out 2s linear forwards;
+        }
+
+        @keyframes textflicker {
+            from {
+                text-shadow: 1px 0 0 #fc9700, -2px 0 0 #f530ff;
+            }
+            to {
+                text-shadow: 2px 0.5px 2px #fc9700, -1px -0.5px 2px #f530ff;
+            }
+        }
+
+        .flicker {
+            animation-duration: 0.01s;
+            animation-name: textflicker;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .g1 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: url(img/bg.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .g1:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url(img/bg.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: .5;
+            mix-blend-mode: hard-light;
+            animation: animate .2s linear infinite;
+        }
+
+        .g2 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: url(img/bgmed.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .g2:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url(img/bgmed.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: .5;
+            mix-blend-mode: hard-light;
+            animation: animate .2s linear infinite;
+        }
+
+        .g3 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: url(img/bgsmall.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .g3:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url(img/bgsmall.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: .5;
+            mix-blend-mode: hard-light;
+            animation: animate .2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                background-position: 0 0;
+                filter: hue-rotate(260deg);
+            }
+            10% {
+                background-position: 1px 0;
+            }
+            20% {
+                background-position: -1px 0;
+            }
+            30% {
+                background-position: 3px 0;
+            }
+            40% {
+                background-position: -1px 0;
+            }
+            50% {
+                background-position: -3px 0;
+            }
+            60% {
+                background-position: -5px 0;
+            }
+            70% {
+                background-position: 0 -3px;
+            }
+            80% {
+                background-position: -5px -3px;
+            }
+            81% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 0;
+                filter: hue-rotate(360deg);
+            }
+
+            /*            text flicker effect modified from:
+            https://codemyui.com/crt-screen-text-flicker-animation-in-pure-css/*/
+            /*            image glitch effect modified from:
+            http://www.onlinetutorialsweb.com/pure-css-glitch-animation-effects-glitch-effect-images-tutorial/*/
+        }
+    </style>
+</head>
+
+<body onload="homeIn()">
+
+    <!-- NavBar Large -->
+
+    <div class="w3-hide-small w3-hide-medium vertical w3-padding w3-black w3-container">
+        <div class="w3-center">
+            <p class="w3-button w3-hover-text-dark-gray w3-hover-black w3-text-deep-orange w3-left-align w3-padding-24" onclick="eventsOut();infoOut();setTimeout(home_open,2000);setTimeout(homeIn,2000);"><img src="img/logo.svg" class="bgimage" width="100%" height="100%"></p>
+        </div>
+        <div class="menu w3-center">
+            <p class="w3-button w3-hover-text-dark-gray w3-hover-black vertical-text w3-padding-24" onclick="homeOut();infoOut();setTimeout(events_open,2000);setTimeout(eventsIn,2000);">EVENTS</p>
+            <p><br></p>
+            <p href="#info" class="w3-button w3-hover-text-dark-gray w3-hover-black vertical-text w3-padding-24" onclick="homeOut();eventsOut();setTimeout(info_open,2000);setTimeout(infoIn,2000);">INFO</p>
+        </div>
+    </div>
+
+    <!-- NavBar Medium & Small -->
+
+    <div class="w3-top w3-hide-large">
+
+        <div class="w3-bar w3-black w3-padding">
+            <img src="img/logosmall.svg" class="w3-bar-item w3-button w3-hover-black logo" onclick="nb_close();eventsOut();infoOut();setTimeout(home_open,2000);setTimeout(homeIn,2000);">
+            <button class="w3-bar-item w3-button w3-right w3-hover-text-dark-gray w3-hover-black w3-hover-text-dark-gray" onclick="nb_open()">&#9776;</button>
+        </div>
+
+    </div>
+
+    <div class="w3-sidebar w3-bar-block w3-black w3-padding" id="navBar" style="display:none">
+
+        <button class="w3-bar-item w3-large w3-black w3-hover-text-dark-gray right" onclick="nb_close()">&times;</button>
+
+        <p class="w3-bar-item w3-hover-text-dark-gray w3-hover-black w3-padding-16 right" onclick="nb_close();homeOut();infoOut();setTimeout(events_open,2000);setTimeout(eventsIn,2000);">EVENTS</p>
+        <p class="w3-bar-item w3-hover-text-dark-gray w3-hover-black  right" onclick="nb_close();homeOut();eventsOut();setTimeout(info_open,2000);setTimeout(infoIn,2000);">INFO</p>
+
+    </div>
+
+
+    <!-- Home -->
+
+    <div id="home" class="home fh">
+
+        <!-- Large -->
+
+        <div class="fh w3-black w3-hide-medium w3-hide-small">
+            <!--            <img src="img/bg.svg" class="bgimage" width="100%" height="100%">-->
+            <div class="g1"></div>
+            <div class="customLarge w3-xlarge flicker">
+                <p class="w3-left-align">03.24</p>
+                <p class="w3-center">-</p>
+                <p class="w3-right-align">04.10</p>
+            </div>
+        </div>
+
+        <!-- Medium -->
+
+        <div class="fh w3-black w3-hide-large w3-hide-small">
+            <!--            <img src="img/bgmed.svg" class="bgimage" width="100%" height="100%">-->
+            <div class="g2"></div>
+            <div class="customMed w3-xlarge flicker">
+                <p class="w3-left-align">03.24</p>
+                <p class="w3-center">-</p>
+                <p class="w3-right-align">04.10</p>
+            </div>
+        </div>
+
+        <!-- Small -->
+
+        <div class="fh w3-black w3-hide-large w3-hide-medium">
+            <!--            <img src="img/bgsmall.svg" class="bgimage" width="100%" height="100%">-->
+            <div class="g3"></div>
+            <div class="customSmall w3-large flicker">
+                <p class="w3-left-align">03.24</p>
+                <p class="w3-center">-</p>
+                <p class="w3-right-align">04.10</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Events -->
+
+    <div id="events" class="fh hide events">
+
+        <!-- Large -->
+
+        <div class="fh w3-black w3-hide-medium w3-hide-small w3-display-container spacerTopMed">
+            <img src="img/event.png" class="w3-image center">
+            <p class="w3-xlarge w3-text-white w3-center">GRIMES</p>
+            <p><br></p>
+            <p class="w3-large w3-text-white w3-center">12.03.22</p>
+            <p><br></p>
+            <p class="w3-large w3-text-deep-orange w3-center flicker">INVITE ONLY.</p>
+            <p><br></p>
+            <p class="w3-large w3-text-white w3-right w3-padding-large w3-display-bottomright"><a href="https://ixd0076.firebird.sheridanc.on.ca/assignments/Semester-6/Interactive-Narrative/Geolocation/">REQUEST PASS HERE.</a></p>
+        </div>
+
+        <!-- Medium -->
+
+        <div class="fh w3-black w3-hide-large w3-hide-small spacerTopSmall w3-display-container">
+            <img src="img/event.png" class="w3-image center">
+            <p class="w3-large w3-text-white w3-center">GRIMES</p>
+            <p><br></p>
+            <p class="w3-large w3-text-white w3-center">12.03.22</p>
+            <p><br></p>
+            <p class="w3-large w3-text-deep-orange w3-center flicker">INVITE ONLY.</p>
+            <p><br></p>
+            <p class="w3-large w3-text-white w3-display-bottommiddle"><a href="https://ixd0076.firebird.sheridanc.on.ca/assignments/Semester-6/Interactive-Narrative/Geolocation/">REQUEST PASS HERE.</a></p>
+
+        </div>
+
+        <!-- Small -->
+
+        <div class="fh w3-black w3-hide-large w3-hide-medium w3-padding-large spacerTopSmall w3-display-container">
+            <img src="img/event.png" class="w3-image">
+            <p class="w3-text-white w3-center">GRIMES</p>
+            <p><br></p>
+            <p class="w3-text-white w3-center">12.03.22</p>
+            <p><br></p>
+            <p class="w3-text-deep-orange w3-center flicker">INVITE ONLY.</p>
+            <p><br></p>
+            <p class="w3-text-white w3-display-bottommiddle"><a href="https://ixd0076.firebird.sheridanc.on.ca/assignments/Semester-6/Interactive-Narrative/Geolocation/">REQUEST PASS HERE.</a></p>
+        </div>
+
+    </div>
+
+
+    <!-- Info -->
+
+    <div id="info" class="fh hide info">
+
+        <!-- Large -->
+
+        <div class="fh w3-black w3-hide-medium w3-hide-small W3-container spacerTopLarge">
+            <p class="w3-xxlarge w3-text-white w3-center">WHO WE ARE</p>
+            <p><br></p>
+            <p class="w3-large w3-text-white w3-center">THE NUMBER ONE NIGHTCLUB DESTINATION. OPEN ONE NIGHT ONLY, SHOWCASING THE UNDERDOGS.</p>
+            <p><br></p>
+            <p class="w3-xxlarge w3-text-deep-orange w3-center flicker">X</p>
+        </div>
+
+        <!-- Medium -->
+
+        <div class="fh w3-black w3-hide-large w3-hide-small w3-padding-large spacerTopLarge">
+            <p class="w3-xlarge w3-text-white w3-center">WHO WE ARE</p>
+            <p><br></p>
+            <p class="w3-text-white w3-center">THE NUMBER ONE NIGHTCLUB DESTINATION. OPEN ONE NIGHT ONLY, SHOWCASING THE UNDERDOGS.</p>
+            <p><br></p>
+            <p class="w3-xlarge w3-text-deep-orange w3-center flicker">X</p>
+
+        </div>
+
+        <!-- Small -->
+
+        <div class="fh w3-black w3-hide-large w3-hide-medium w3-padding-large spacerTopLarge">
+            <p class="w3-large w3-text-white">WHO WE ARE</p>
+            <p><br></p>
+            <p class="w3-text-white">THE NUMBER ONE NIGHTCLUB DESTINATION. OPEN ONE NIGHT ONLY, SHOWCASING THE UNDERDOGS.</p>
+            <p><br></p>
+            <p class="w3-large w3-text-deep-orange flicker">X</p>
+        </div>
+
+    </div>
+
+
+    <script>
+        function nb_open() {
+            document.getElementById("navBar").style.display = "block";
+        }
+
+        function nb_close() {
+            document.getElementById("navBar").style.display = "none";
+        }
+
+        function home_open() {
+            document.getElementById("home").style.display = "block";
+            document.getElementById("events").style.display = "none";
+            document.getElementById("info").style.display = "none";
+        }
+
+        function events_open() {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("events").style.display = "block";
+            document.getElementById("info").style.display = "none";
+        }
+
+        function info_open() {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("events").style.display = "none";
+            document.getElementById("info").style.display = "block";
+        }
+
+        function homeIn() {
+            home.classList.remove('fadeout');
+            home.classList.add('fadein');
+        }
+
+        function homeOut() {
+            home.classList.remove('fadein');
+            home.classList.add('fadeout');
+        }
+
+        function eventsIn() {
+            events.classList.remove('fadeout');
+            events.classList.add('fadein');
+        }
+
+        function eventsOut() {
+            events.classList.remove('fadein');
+            events.classList.add('fadeout');
+        }
+
+        function infoIn() {
+            info.classList.remove('fadeout');
+            info.classList.add('fadein');
+        }
+
+        function infoOut() {
+            info.classList.remove('fadein');
+            info.classList.add('fadeout');
+        }
+    </script>
+</body>
+
+</html>
